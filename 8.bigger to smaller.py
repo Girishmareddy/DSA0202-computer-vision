@@ -1,12 +1,19 @@
 import cv2
-import numpy as np
-kernel = np.ones((5,5),np.uint8)
 
-img = cv2.imread("C:\\Users\\Girishma reddy\\OneDrive\\Desktop\\open cv\\image1.jpg", cv2.IMREAD_COLOR)
-img1 = cv2.resize(img,(700,700))
-img2 = cv2.resize(img,(1500,1500))
-img3 = cv2.resize(img,(500,500))
-cv2.imshow("image", img1)
-cv2.imshow("image", img2)
-cv2.imshow("image", img3)
+image = cv2.imread('C:\\Users\\ghant\\OneDrive\\Desktop\\shinchan.jpg')
+
+height, width = image.shape[:2]
+
+scale_factor = 2.0
+bigger_image = cv2.resize(image, (int(width*scale_factor), int(height*scale_factor)))
+
+scale_factor = 0.5
+smaller_image = cv2.resize(image, (int(width*scale_factor), int(height*scale_factor)))
+
+
+cv2.imshow('Original Image', image)
+cv2.imshow('Bigger Image', bigger_image)
+cv2.imshow('Smaller Image', smaller_image)
+
 cv2.waitKey(0)
+cv2.destroyAllWindows()
